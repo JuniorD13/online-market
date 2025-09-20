@@ -10,6 +10,6 @@ class Product(models.Model):
     picture = models.ImageField(upload_to='products/', null=True, blank=True)
 
     def __str__(self):
-        return f"{self.name}, {self.price}, {self.quantity}"
+        return f"{self.name} ({self.quantity})"
 
 # Create your models here.
