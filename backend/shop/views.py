@@ -3,5 +3,6 @@ from .models import Product
 
 
 def home(request):
-    return render(request, 'shop/home.html', {'title' : home})
+    products = Product.objects.all()
+    return render(request, 'shop/home.html', {'products' : products})
 # Create your views here.
