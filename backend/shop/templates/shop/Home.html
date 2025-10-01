@@ -4,8 +4,8 @@
 {% block content %}
 
 {% for product in products %}
-    <h2>{{product.name}}</h2>
-    <a href="{{product.get_alsolute_url}}"><img src="{{product.picture.url}}" alt="{{product.name}}" style="max-width:250px;"></a>
+    <a href="{%url 'product_detail' product.sluglink %}" ><h2 class="mb-4 font-semibold ">{{product.name}}</h2></a>
+    <img src="{{product.picture.url}}" alt="{{product.name}}" class="w-80 mb-6 rounded-2xl  ">
 
 {%endfor%}
 {% endblock %}

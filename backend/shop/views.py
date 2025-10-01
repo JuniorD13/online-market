@@ -7,7 +7,7 @@ def home(request):
     products = Product.objects.all()
     return render(request, 'shop/home.html', {'products' : products})
 
-def product_details(request, slug):
-    product = get_object_or_404(Product, slug=slug)
+def product_details(request, sluglink):
+    product = get_object_or_404(Product, sluglink=sluglink)
     return render(request, 'shop/product_detail.html', {'product' : product})
 # Create your views here.
