@@ -4,8 +4,11 @@
 
     <h2>{{ product.name }}</h2>
     <h3>${{ product.price }}</h3>
-    <img src="{{product.picture.url}}" alt="{{product.name}}" style="max-width:250px;">
+    <img src="{{product.picture.url}}" alt="{{product.name}}" class="w-80 mb-6 rounded-2xl  ">
     <p>{{ product.description }}</p>
-    <p>{{ product.quantity }} en Stock</p>
+    <p>{{ product.quantitys }} en Stock</p>
+    {% if user.is_authenticated  %}
+    <a href="{% url 'add_to_cart' product.sluglink %}" class="btn btn-primary mt-5">Ajouter au Panier</a>
+    {% endif %}
 
 {% endblock %}

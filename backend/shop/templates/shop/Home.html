@@ -3,6 +3,10 @@
 
 {% block content %}
 
+{% if user.is_authenticated  %}
+    <a href="{% url 'cart' %}" class="text-2xl mb-6 " ><i class="fa fa-shopping-cart" aria-hidden="true"> ({{  user.cart.orders.count }})</i></a>
+{% endif %}
+
 {% for product in products %}
     <a href="{%url 'product_detail' product.sluglink %}" ><h2 class="mb-4 font-semibold ">{{product.name}}</h2></a>
     <img src="{{product.picture.url}}" alt="{{product.name}}" class="w-80 mb-6 rounded-2xl  ">

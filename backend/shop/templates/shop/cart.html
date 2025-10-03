@@ -1,0 +1,17 @@
+{% extends "shop/base.html" %}
+
+
+
+{% block content %}
+<div class="flex flex-col items-center  mt-8 gap-6">
+{% for order in orders %}
+    <div class="">
+        <h2  class="mb-4 font-semibold ">{{order.product.name}} <p class="mb-5">{{order.quantity}} dans le panier </p> </h2>
+
+    </div>
+{% endfor %}
+</div>
+
+<a href="{% url 'delete_cart' %}" class="text-2xl " ><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+{%endblock%}
