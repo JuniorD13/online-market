@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.utils import timezone
 from django.urls import reverse
 
 
@@ -35,4 +36,14 @@ class Cart(models.Model):
 
     def __str__(self):
         return f"{self.user.username}"
+
+    def delete(self, *args, **kwargs):
+        for order in self.orders.all():
+            order.ordered = True
+            order.ordered_date = timezone.now()
+            order.save()
+
+        self.orders.clear()
+        
+        super().delete(*args, **kwargs)
 # Create your models here.
